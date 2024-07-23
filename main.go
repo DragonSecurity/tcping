@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"context"
 	"flag"
+	"github.com/google/go-github/v45/github"
 	"math/rand"
 	"net"
 	"net/netip"
@@ -14,8 +15,6 @@ import (
 	"strings"
 	"syscall"
 	"time"
-
-	"github.com/google/go-github/v45/github"
 )
 
 const (
