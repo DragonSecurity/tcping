@@ -1,0 +1,10 @@
+*.sh
+executables/
+.idea/
+tcping
+tcping.exe
+.DS_Store
+.vscode
+*.code-workspace
+patches/
+*.db
