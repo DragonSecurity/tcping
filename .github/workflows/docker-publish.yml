@@ -42,12 +42,12 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            dragonsecurity/tcping
             ghcr.io/dragonsecurity/tcping
           tags: |
             type=sha,prefix={{branch}}-
             type=raw,value=latest-{{branch}}-{{sha}}
             type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
             type=sha
 
       - name: Checkout repository
