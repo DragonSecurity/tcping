@@ -1,4 +1,4 @@
-FROM golang1.22.4-alpine as build
+FROM golang1.22.4-docker AS build
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
