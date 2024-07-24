@@ -16,10 +16,6 @@ on:
   push:
     branches: [ "main" ]
     # Publish semver tags as releases.
-    tags: |
-      type=sha,prefix={{branch}}-
-      type=raw,value=latest-{{branch}}-{{sha}}
-      type=raw,value=latest,enable={{is_default_branch}}
   pull_request:
     branches: [ "main" ]
 
@@ -42,6 +38,18 @@ jobs:
       id-token: write
 
     steps:
+      - name: Docker meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            dragonsecurity/tcping
+            ghcr.io/dragonsecurity/tcping
+          tags: |
+            type=sha,prefix={{branch}}-
+            type=raw,value=latest-{{branch}}-{{sha}}
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
