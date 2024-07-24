@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo
+echo ping ${HOSTNAME:=localhost} every ${TIMEOUT:=300} sec
+echo
+while true; do ping -c 1 ${HOSTNAME}; sleep ${TIMEOUT}; done;
