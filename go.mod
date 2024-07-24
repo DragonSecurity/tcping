@@ -1,6 +1,6 @@
 module tcping
 
-go 1.22
+go 1.22.4
 
 require (
 	github.com/google/go-github/v45 v45.2.0
