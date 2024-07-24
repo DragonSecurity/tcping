@@ -7,10 +7,10 @@ if [ "${TYPE}" == "TCP" ] || [ "${TYPE}" == "tcp" ]; then
   echo
   echo tcping ${HOSTNAME:=localhost} on ${PORT}
   echo
-  ./tcping -c 1 -4 ${HOSTNAME} ${PORT}
+  while true; do ./tcping -c 1 ${HOSTNAME} ${PORT}; sleep ${TIMEOUT:=300}; done
 else
   echo
   echo ping ${HOSTNAME:=localhost}
   echo
-  ./ping -c 1 ${HOSTNAME}; sleep ${TIMEOUT}
+  while true; do ping -c 1 ${HOSTNAME}; sleep ${TIMEOUT:=300}; done
 fi
