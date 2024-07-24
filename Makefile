@@ -25,7 +25,7 @@ build: 	clean update tidyup format vet test \
 	@echo
 	@echo "[+] Done"
 
-reate_dirs:
+create_dirs:
 	@echo
 	@echo "[+] Version: $(VERSION)"
 	@echo
@@ -62,6 +62,7 @@ build_linux_static:
 build_debian_package:
 	@echo
 	@echo "[+] Building the Debian package"
+	@mkdir -p $(TARGET_EXECUTABLE_PATH)
 	@cp $(EXECUTABLE_PATH) $(TARGET_EXECUTABLE_PATH)
 
 	@echo "[+] Creating the Debian control file"

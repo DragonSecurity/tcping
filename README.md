@@ -6,8 +6,6 @@
 [![Go](https://github.com/pouriyajamshidi/tcping/actions/workflows/.github/workflows/codeql-analysis.yml/badge.svg)](https://github.com/dragonsecurity/tcping/actions/workflows/go.yml)
 [![Docker container build](https://github.com/pouriyajamshidi/tcping/actions/workflows/container-publish.yml/badge.svg)](https://github.com/dragonsecurity/tcping/actions/workflows/container-publish.yml)
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/pouriyajamshidi/tcping)
-[![Go project version](https://badge.fury.io/go/github.com%dragonsecurity%2Ftcping.svg)](https://badge.fury.io/go/github.com%2Fdragonsecurity%2Ftcping)
-![Download](https://img.shields.io/github/downloads/dragonsecurity/tcping/total.svg?label=DOWNLOADS&logo=github)
 
 A cross-platform ping program for `TCP` ports inspired by the Linux's ping utility. This program will send `TCP` probes to an `IP address` or a `hostname` specified by you and prints the results. It supports both `IPv4` and `IPv6`.
 
@@ -26,5 +24,25 @@ Here are some of the features of **TCPING**:
 - Display the longest encountered `downtime` and `uptime` duration and time.
 - Monitor and audit your peers network (SLA).
 - Calculate the total uptime or downtime of your network when conducting a maintenance.
+
+---
+
+## Demos
+
+### Basic usage
+
+![tcping](Images/gifs/tcping.gif)
+
+---
+
+### Retry hostname lookup (`-r`) flag
+
+![tcping resolve example](Images/gifs/tcping_resolve.gif)
+
+---
+
+### JSON output (`-j --pretty`) flag
+
+![tcping json example](Images/gifs/tcping_json_pretty.gif)
 
 ---

@@ -1,4 +1,6 @@
 *.sh
+!build-image.sh
+!run-container.sh
 executables/
 .idea/
 tcping
