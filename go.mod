@@ -1,4 +1,4 @@
-module tcping
+module github.com/dragonsecurity/tcping
 
 go 1.22.4
 
