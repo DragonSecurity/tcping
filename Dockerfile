@@ -15,7 +15,7 @@ COPY --from=build /app/*ping .
 RUN chmod +x /usr/src/app/*ping
 
 RUN apk --no-cache add ca-certificates tzdata
+USER 1000
 HEALTHCHECK --interval=5s --timeout=3s CMD ps aux | grep '[s]h ping' || exit 1
 RUN ls /usr/src/app/
-USER 1000
 ENTRYPOINT ["sh", "/usr/src/app/healthping"]
