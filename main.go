@@ -354,7 +354,7 @@ func processUserInput(tcping *tcping) {
 
 	// Handle -u flag
 	if *checkUpdates {
-		checkForUpdates(tcping)
+		showVersion(tcping)
 	}
 
 	// host and port must be specified
@@ -536,43 +536,6 @@ func compareVersions(v1, v2 string) int {
 	}
 
 	return 0
-}
-
-// checkForUpdates checks for newer versions of tcping
-func checkForUpdates(tcping *tcping) {
-	c := github.NewClient(nil)
-
-	/* unauthenticated requests from the same IP are limited to 60 per hour. */
-	latestRelease, _, err := c.Repositories.GetLatestRelease(context.Background(), owner, repo)
-	if err != nil {
-		tcping.printError("Failed to check for updates %s", err.Error())
-		os.Exit(1)
-	}
-
-	reg := `^v?(\d+\.\d+\.\d+)$`
-	latestTagName := latestRelease.GetTagName()
-	latestVersion := regexp.MustCompile(reg).FindStringSubmatch(latestTagName)
-
-	if len(latestVersion) == 0 {
-		tcping.printError("Failed to check for updates. The version name does not match the rule: %s", latestTagName)
-		os.Exit(1)
-	}
-
-	comparison := compareVersions(version, latestVersion[1])
-
-	if comparison < 0 {
-		tcping.printInfo("Found newer version %s", latestVersion[1])
-		tcping.printInfo("Please update TCPING from the URL below:")
-		tcping.printInfo("https://github.com/%s/%s/releases/tag/%s",
-			owner, repo, latestTagName)
-	} else if comparison > 0 {
-		tcping.printInfo("Current version %s is newer than the latest release %s",
-			version, latestVersion[1])
-	} else {
-		tcping.printInfo("You have the latest version: %s", version)
-	}
-
-	os.Exit(0)
 }
 
 // selectResolvedIP returns a single IPv4 or IPv6 address from the net.IP slice of resolved addresses
