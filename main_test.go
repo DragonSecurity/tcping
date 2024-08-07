@@ -39,7 +39,7 @@ func createTestStats(t *testing.T) *tcping {
 //
 // It could fail if net.Listen or Accept has failed.
 func testServerListen(t *testing.T) net.Listener {
-	srv, err := net.Listen("tcp", ":12345")
+	srv, err := net.Listen("tcp", "127.0.0.1:12345")
 	if err != nil {
 		t.Errorf("test server: %v", err)
 	}

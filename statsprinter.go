@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/carlmjohnson/versioninfo"
 	"github.com/gookit/color"
 	"math"
 	"os"
@@ -195,7 +196,7 @@ func (p *planePrinter) printError(format string, args ...any) {
 }
 
 func (p *planePrinter) printVersion() {
-	colorGreen("TCPING version %s\n", version)
+	colorGreen("TCPING version %s\n", versioninfo.Version)
 }
 
 type jsonPrinter struct {
@@ -506,7 +507,7 @@ func (p *jsonPrinter) printError(format string, args ...any) {
 func (p *jsonPrinter) printVersion() {
 	p.print(JSONData{
 		Type:    versionEvent,
-		Message: fmt.Sprintf("TCPING version %s\n", version),
+		Message: fmt.Sprintf("TCPING version %s\n", versioninfo.Version),
 	})
 }
 

@@ -4,21 +4,18 @@ import (
 	"bufio"
 	"context"
 	"flag"
+	"github.com/carlmjohnson/versioninfo"
 	"math/rand"
 	"net"
 	"net/netip"
 	"os"
 	"os/signal"
 	"strconv"
-	"strings"
 	"syscall"
 	"time"
 )
 
 const (
-	version    = "1.0.0"
-	owner      = "dragonsecurity"
-	repo       = "tcping"
 	dnsTimeout = 2 * time.Second
 )
 
@@ -205,7 +202,7 @@ func shutdown(tcping *tcping) {
 func usage() {
 	executableName := os.Args[0]
 
-	colorLightCyan("\nTCPING version %s\n\n", version)
+	colorLightCyan("\nTCPING version %s\n\n", versioninfo.Version)
 	colorRed("Try running %s like:\n", executableName)
 	colorRed("%s <hostname/ip> <port number>. For example:\n", executableName)
 	colorRed("%s www.example.com 443\n", executableName)
@@ -319,14 +316,13 @@ func processUserInput(tcping *tcping) {
 	probesBeforeQuit := flag.Uint("c", 0, "stop after <n> probes, regardless of the result. By default, no limit will be applied.")
 	outputJSON := flag.Bool("j", false, "output in JSON format.")
 	prettyJSON := flag.Bool("pretty", false, "use indentation when using json output format. No effect without the '-j' flag.")
-	showVer := flag.Bool("v", false, "show version.")
-	checkUpdates := flag.Bool("u", false, "check for updates and exit.")
 	secondsBetweenProbes := flag.Float64("i", 1, "interval between sending probes. Real number allowed with dot as a decimal separator. The default is one second")
 	timeout := flag.Float64("t", 1, "time to wait for a response, in seconds. Real number allowed. 0 means infinite timeout.")
 	outputDB := flag.String("db", "", "path and file name to store tcping output to sqlite database.")
 	interfaceName := flag.String("I", "", "interface name or address.")
 	showFailuresOnly := flag.Bool("show-failures-only", false, "Show only the failed probes.")
 	showHelp := flag.Bool("h", false, "show help message.")
+	versioninfo.AddFlag(nil)
 
 	flag.CommandLine.Usage = usage
 
@@ -340,19 +336,9 @@ func processUserInput(tcping *tcping) {
 	// error reporting and other output.
 	setPrinter(tcping, outputJSON, prettyJSON, outputDB, args)
 
-	// Handle -v flag
-	if *showVer {
-		showVersion(tcping)
-	}
-
 	// Handle -h flag
 	if *showHelp {
 		usage()
-	}
-
-	// Handle -u flag
-	if *checkUpdates {
-		showVersion(tcping)
 	}
 
 	// host and port must be specified
@@ -505,35 +491,6 @@ func newNetworkInterface(tcping *tcping, netInterface string) networkInterface {
 	}
 
 	return ni
-}
-
-// compareVersions is used to compare tcping versions
-func compareVersions(v1, v2 string) int {
-	parts1 := strings.Split(v1, ".")
-	parts2 := strings.Split(v2, ".")
-
-	for i := 0; i < len(parts1) && i < len(parts2); i++ {
-		n1, _ := strconv.Atoi(parts1[i])
-		n2, _ := strconv.Atoi(parts2[i])
-
-		if n1 < n2 {
-			return -1
-		}
-		if n1 > n2 {
-			return 1
-		}
-	}
-
-	// for cases in which version numbers differ in length
-	if len(parts1) < len(parts2) {
-		return -1
-	}
-
-	if len(parts1) > len(parts2) {
-		return 1
-	}
-
-	return 0
 }
 
 // selectResolvedIP returns a single IPv4 or IPv6 address from the net.IP slice of resolved addresses
