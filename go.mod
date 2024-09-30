@@ -6,7 +6,7 @@ require (
 	github.com/carlmjohnson/versioninfo v0.22.5
 	github.com/gookit/color v1.5.4
 	github.com/stretchr/testify v1.9.0
-	zombiezen.com/go/sqlite v1.3.0
+	zombiezen.com/go/sqlite v1.4.0
 )
 
 require (
@@ -24,5 +24,5 @@ require (
 	modernc.org/libc v1.57.0 // indirect
 	modernc.org/mathutil v1.6.0 // indirect
 	modernc.org/memory v1.8.0 // indirect
-	modernc.org/sqlite v1.31.1 // indirect
+	modernc.org/sqlite v1.33.1 // indirect
 )
