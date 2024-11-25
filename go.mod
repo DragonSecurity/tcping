@@ -5,7 +5,7 @@ go 1.22.5
 require (
 	github.com/carlmjohnson/versioninfo v0.22.5
 	github.com/gookit/color v1.5.4
-	github.com/stretchr/testify v1.9.0
+	github.com/stretchr/testify v1.10.0
 	zombiezen.com/go/sqlite v1.3.0
 )
 
