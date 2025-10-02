@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "enabledManagers": ["dockerfile", "gomod"],
+  "schedule": ["before 6am on monday"],
+  "rebaseWhen": "conflicted",
+
+  "platformAutomerge": true,
+  "automergeStrategy": "squash",
+
+  "packageRules": [
+    {
+      "matchManagers": ["dockerfile", "gomod"],
+      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "matchManagers": ["gomod"],
+      "matchUpdateTypes": ["minor"],
+      "automerge": true,
+      "automergeType": "pr"
+    }
+  ]
+}
