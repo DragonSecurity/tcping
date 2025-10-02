@@ -6,7 +6,7 @@ require (
 	github.com/carlmjohnson/versioninfo v0.22.5
 	github.com/gookit/color v1.6.0
 	github.com/stretchr/testify v1.11.1
-	zombiezen.com/go/sqlite v1.3.0
+	zombiezen.com/go/sqlite v1.4.2
 )
 
 require (
