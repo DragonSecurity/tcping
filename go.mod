@@ -1,6 +1,6 @@
 module github.com/dragonsecurity/tcping
 
-go 1.23.12
+go 1.24.7
 
 require (
 	github.com/carlmjohnson/versioninfo v0.22.5
