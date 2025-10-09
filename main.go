@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"context"
 	"flag"
-	"github.com/carlmjohnson/versioninfo"
+	"github.com/earthboundkid/versioninfo"
 	"math/rand"
 	"net"
 	"net/netip"
