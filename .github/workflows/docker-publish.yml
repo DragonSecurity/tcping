@@ -7,9 +7,6 @@ name: Docker
 
 on:
   workflow_run:
-    workflows: ["CodeQL"]
-    types:
-      - completed
     branches: ["main"]
   schedule:
     - cron: '17 5 * * *'
