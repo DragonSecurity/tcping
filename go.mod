@@ -3,7 +3,7 @@ module github.com/dragonsecurity/tcping
 go 1.25.2
 
 require (
-	github.com/carlmjohnson/versioninfo v0.22.5
+	github.com/earthboundkid/versioninfo/v2 v0.22.5
 	github.com/gookit/color v1.6.0
 	github.com/stretchr/testify v1.11.1
 	zombiezen.com/go/sqlite v1.4.2
