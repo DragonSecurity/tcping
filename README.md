@@ -2,10 +2,10 @@
 # TCPING
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/dragonsecurity/tcping)](https://goreportcard.com/report/github.com/dragonsecurity/tcping)
-[![CodeFactor](https://www.codefactor.io/repository/github/pouriyajamshidi/tcping/badge)](https://www.codefactor.io/repository/github/dragonsecurity/tcping)
-[![Go](https://github.com/pouriyajamshidi/tcping/actions/workflows/.github/workflows/codeql-analysis.yml/badge.svg)](https://github.com/dragonsecurity/tcping/actions/workflows/go.yml)
-[![Docker container build](https://github.com/pouriyajamshidi/tcping/actions/workflows/container-publish.yml/badge.svg)](https://github.com/dragonsecurity/tcping/actions/workflows/container-publish.yml)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/pouriyajamshidi/tcping)
+[![CodeFactor](https://www.codefactor.io/repository/github/dragonsecurity/tcping/badge)](https://www.codefactor.io/repository/github/dragonsecurity/tcping)
+[![Go](https://github.com/dragonsecurity/tcping/actions/workflows/.github/workflows/codeql-analysis.yml/badge.svg)](https://github.com/dragonsecurity/tcping/actions/workflows/go.yml)
+[![Docker container build](https://github.com/dragonsecurity/tcping/actions/workflows/container-publish.yml/badge.svg)](https://github.com/dragonsecurity/tcping/actions/workflows/container-publish.yml)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/dragonsecurity/tcping)
 
 A cross-platform ping program for `TCP` ports inspired by the Linux's ping utility. This program will send `TCP` probes to an `IP address` or a `hostname` specified by you and prints the results. It supports both `IPv4` and `IPv6`.
 
