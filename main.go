@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"context"
 	"flag"
-	"github.com/earthboundkid/versioninfo"
+	"github.com/earthboundkid/versioninfo/v2"
 	"math/rand"
 	"net"
 	"net/netip"
